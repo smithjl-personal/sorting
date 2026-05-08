@@ -34,3 +34,48 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Docker Deployment
+
+This project includes Docker support for containerized deployment.
+
+### Local Development with Docker
+
+1. Build the Docker image:
+
+```bash
+docker build -t sorting-app .
+```
+
+2. Run the container:
+
+```bash
+docker run -p 3000:3000 sorting-app
+```
+
+Or use Docker Compose:
+
+```bash
+docker-compose up --build
+```
+
+### GitHub Actions CI/CD
+
+The project is configured with GitHub Actions to automatically build and push Docker images to GitHub Container Registry on pushes to the main branch.
+
+To deploy to a hosting service that supports Docker:
+
+1. **Railway**: Connect your GitHub repo and deploy from the container registry.
+2. **Render**: Create a new service from the Docker image in GHCR.
+3. **Fly.io**: Use `fly deploy` with the image from GHCR.
+4. **Google Cloud Run**: Deploy the image from GHCR.
+
+Example for Railway:
+
+- Go to Railway.app
+- Create a new project
+- Choose "Deploy from GitHub"
+- Select your repo
+- Railway will detect the Dockerfile and deploy automatically
+
+The Docker image will be available at `ghcr.io/your-username/sorting:latest` after the workflow runs.
