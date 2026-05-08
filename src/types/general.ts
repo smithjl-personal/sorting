@@ -4,7 +4,17 @@ export type SortEvent =
 	| { type: "overwrite"; index: number; value: number }
 	| { type: "markSorted"; index: number };
 
-export type AlgorithmId = "bubble" | "selection" | "insertion";
+export type AlgorithmId =
+	| "bubble"
+	| "selection"
+	| "insertion"
+	| "merge"
+	| "quick"
+	| "heap"
+	| "radix"
+	| "shell"
+	| "cocktail"
+	| "bogo";
 
 export type AlgorithmOption = {
 	id: AlgorithmId;
