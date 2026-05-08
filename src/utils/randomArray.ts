@@ -3,12 +3,11 @@ type MakeRandomArrayArgs = {
 	maxValue: number;
 };
 
-function makeRandomArray(options: MakeRandomArrayArgs): Array<number> {
-	const arr = [];
+export function makeRandomArray(options: MakeRandomArrayArgs): number[] {
+	const arr: number[] = [];
 
 	for (let i = 0; i < options.arraySize; i++) {
-		let initialValue = Math.random() * options.maxValue;
-		let value = Math.floor(initialValue);
+		const value = Math.floor(Math.random() * options.maxValue) + 1;
 		arr.push(value);
 	}
 
